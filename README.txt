@@ -1,10 +1,10 @@
 Description:
 	MMPDeepSleepPreventer is an Objective-C class used to prevent iOS devices from deep sleeping.
-	This has been tested on an iOS versions 3.0 to 4.2.1, so far and should work on all devices,
-	running one of these iOS versions.
+	This version is forked from the original at https://github.com/marcop/MMPDeepSleepPreventer and 
+	updated for iOS 5. This version has only been tested with iOS 5. Using the original is 
+	recommended for previous versions of iOS.
 	
 	MMPDeepSleepPreventer is released under the New BSD License. (Below is the exact license text).
-	If you use this code a little attribution note would be greatly appreciated.
 
 
 How-To Use:
@@ -12,15 +12,17 @@ How-To Use:
 	  MMPSilence.wav to your project.
 	- Add “AVFoundation.framework” and “AudioToolbox.framework” to your project.
 	- Import MMPDeepSleepPreventer.h where you want to use the class.
+	- Add the UIBackgroundModes key to your project's Info.plist file and add 'audio' its value.
 	- Instantiate an MMPDeepSleepPreventer object.
 	- Use -[MMPDeepSleepPreventer startPreventSleep]
 	  and -[MMPDeepSleepPreventer stopPreventSleep] when needed.
 
-
-Inspired by:
-	Some question on stackoverflow.com
-	Some posts on Apple's devforums.
-
+Changes in this fork:
+	- iOS 5 requires the developer to set the the UIBackgroundModes key in your project's Info.plist file. 		
+	  This requirement is described here:
+			http://developer.apple.com/library/IOS/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html
+	- Additionally, apps must play continuous audio without interruption to maintain background status,
+	  so AVAudioPlayer now plays an infinite loop of silent audio.
 
 License:
 Copyright (c) 2009-2011, Marco Peluso - marcopeluso.com
